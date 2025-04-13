@@ -11,7 +11,7 @@ brew install gcc
 ```json
 {
     "Standard Library Header": {
-        "prefix": "stdcpp",
+        "prefix": "cppstd",
         "body": [
             "#include <bits/stdc++.h>",
             "using namespace std;",
