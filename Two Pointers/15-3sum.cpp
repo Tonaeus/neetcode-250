@@ -2,7 +2,7 @@
 using namespace std;
 
 // Time Complexity: O(n^2)
-// Space Complexity: O(n•log(n))
+// Space Complexity: O(log(n))
 
 class Solution {
 public:
