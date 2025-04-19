@@ -8,7 +8,7 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
         int ans = 0;
-        array<int, 26> freq;
+        vector<int> freq(26);
         int maxFreq = 0;
 
         int l = 0;
