@@ -8,11 +8,11 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int ans = 0;
-        unordered_map<char, int> map;
+        vector<int> map(128, -1);
 
         int l = 0;
         for (int r = 0; r < s.length(); r++) {
-            if (map.contains(s[r])) {
+            if (map[s[r]] > -1) {
                 l = max(l, map[s[r]] + 1);
             }
             map[s[r]] = r;

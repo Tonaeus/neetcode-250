@@ -8,15 +8,15 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int ans = INT_MAX;
-        int sum = 0;
+        int windowSum = 0;
 
         int l = 0;
         for (int r = 0; r < nums.size(); r++) {
-            sum += nums[r];
+            windowSum += nums[r];
 
-            while (sum >= target) {
+            while (windowSum >= target) {
                 ans = min(ans, r - l + 1);
-                sum -= nums[l];
+                windowSum -= nums[l];
                 l++;
             }
         }

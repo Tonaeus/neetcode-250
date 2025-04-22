@@ -8,16 +8,16 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
         int ans = 0;
-        vector<int> freq(26);
+        vector<int> windowFreq(26);
         int maxFreq = 0;
 
         int l = 0;
         for (int r = 0; r < s.length(); r++) {
-            freq[s[r] - 'A']++;
-            maxFreq = max(maxFreq, freq[s[r] - 'A']);
+            windowFreq[s[r] - 'A']++;
+            maxFreq = max(maxFreq, windowFreq[s[r] - 'A']);
 
             while ((r - l + 1) - maxFreq > k) {
-                freq[s[l] - 'A']--;
+                windowFreq[s[l] - 'A']--;
                 l++;
             }
 
