@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n•log(n))
+// Time Complexity: O(n·log(n))
 // Space Complexity: O(log(n))
 
 class Solution {

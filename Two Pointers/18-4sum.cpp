@@ -2,12 +2,9 @@
 using namespace std;
 
 // Time Complexity: O(n^3)
-// Space Complexity: O(log(n))
+// Space Complexity: O(n^3)
 
 class Solution {
-vector<vector<int>> ans;
-vector<int> addends;
-
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         int n = nums.size();
@@ -16,13 +13,24 @@ public:
         }
 
         sort(nums.begin(), nums.end());
-        kSum(nums, target, 0, n - 1, 4);
+
+        vector<vector<int>> ans;
+        vector<int> addends;
+        kSum(nums, target, 0, n - 1, 4, ans, addends);
         
         return ans;
     }
 
 private: 
-    void kSum(vector<int>& nums, long target, int l, int r, int k) {
+    void kSum(
+        vector<int>& nums, 
+        long target, 
+        int l, 
+        int r, 
+        int k, 
+        vector<vector<int>>& ans, 
+        vector<int>& addends
+    ) {
         if (k == 2) {
             while (l < r) {
                 int sum = nums[l] + nums[r];
@@ -56,7 +64,7 @@ private:
                 continue;
             }
             addends.push_back(nums[i]);
-            kSum(nums, target - nums[i], i + 1, n - 1, k - 1);
+            kSum(nums, target - nums[i], i + 1, n - 1, k - 1, ans, addends);
             addends.pop_back();
         }
 

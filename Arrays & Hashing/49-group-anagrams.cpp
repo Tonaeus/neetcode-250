@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n • k)
-// Space Complexity: O(n • k)
+// Time Complexity: O(n * k)
+// Space Complexity: O(n * k)
 
 class Solution {
 public:
