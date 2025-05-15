@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
+    bool search(vector<int>& nums, int target) {
         int l = 0;
         int r = nums.size() - 1;
 
@@ -14,10 +14,14 @@ public:
             int mid = l + (r - l) / 2;
 
             if (nums[mid] == target) {
-                return mid;
+                return true;
             }
-
-            if (nums[l] <= nums[mid]) {
+            
+            if (nums[l] == nums[mid] and nums[mid] == nums[r]) {
+                l++;
+                r--;
+            }
+            else if (nums[l] <= nums[mid]) {
                 if (nums[l] <= target and target < nums[mid]) {
                     r = mid - 1;
                 }
@@ -35,6 +39,6 @@ public:
             }
         }
  
-        return -1;
+        return false;
     }
 };
