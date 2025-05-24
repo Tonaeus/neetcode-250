@@ -13,24 +13,65 @@ public:
 class Solution {
 public:
     int findInMountainArray(int target, MountainArray &mountainArr) {
+        int n = mountainArr.length();
         int peak = 0;
 
-        int l = 0;
-        int r = mountainArr.length() - 1;
+        int l = 1;
+        int r = n - 2;
 
         while (l <= r) {
             int mid = l + (r - l) / 2;
 
-            int i = mountainArr.get(l);
-            int j = mountainArr.get(mid);
-            int k = mountainArr.get(r);
+            int prevVal = mountainArr.get(mid - 1);
+            int currVal = mountainArr.get(mid);
+            int nextVal = mountainArr.get(mid + 1);
 
-            // if () {
-
-            // }
+            if (prevVal > currVal) {
+                r = mid - 1;
+            }
+            else if (nextVal > currVal) {
+                l = mid + 1;
+            }
+            else {
+                peak = mid;
+                break;
+            }
         }
 
+        l = 0;
+        r = peak - 1;
 
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            int val = mountainArr.get(mid);
+            if (val < target) {
+                l = mid + 1;
+            }
+            else if (val > target) {
+                r = mid - 1;
+            }
+            else {
+                return mid;
+            }
+        }
 
+        l = peak;
+        r = n - 1;
+
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            int val = mountainArr.get(mid);
+            if (val < target) {
+                r = mid - 1;
+            }
+            else if (val > target) {
+                l = mid + 1;
+            }
+            else {
+                return mid;
+            }
+        }
+
+        return -1;
     }
 };
