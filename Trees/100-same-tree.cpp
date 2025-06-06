@@ -17,22 +17,17 @@ struct TreeNode {
 
 class Solution {
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
-        int ans = 0;
-        postorder(root, ans);
-        return ans;
-    }
-
-private:
-    int postorder(TreeNode* node, int& ans) {
-        if (!node) {
-            return 0;
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (!p and !q) {
+            return true; 
         }
+        if (!p ^ !q) {
+            return false; 
+        }
+        
+        bool l = isSameTree(p->left, q->left);
+        bool r = isSameTree(p->right, q->right);
 
-        int l = postorder(node->left, ans);
-        int r = postorder(node->right, ans);
-        ans = max(ans, l + r);
-
-        return max(l, r) + 1;
+        return l and r and p->val == q->val;
     }
 };
