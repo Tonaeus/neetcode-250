@@ -17,21 +17,21 @@ struct TreeNode {
 
 class Solution {
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
-        int ans = 0;
+    bool isBalanced(TreeNode* root) {
+        bool ans = true;
         postorder(root, ans);
         return ans;
     }
 
-private:
-    int postorder(TreeNode* node, int& ans) {
+private: 
+    int postorder(TreeNode* node, bool& ans) {
         if (!node) {
             return 0;
         }
 
         int l = postorder(node->left, ans);
         int r = postorder(node->right, ans);
-        ans = max(ans, l + r);
+        ans &= abs(l - r) < 2;
 
         return max(l, r) + 1;
     }
