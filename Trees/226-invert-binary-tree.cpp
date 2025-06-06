@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Algorithm: Pre-order traversal
+
 // Time Complexity: O(n)
-// Space Complexity: O(n)
+// Space Complexity: O(1)
 
 struct TreeNode {
     int val;
@@ -15,22 +17,15 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode* root) {
-        vector<int> ans;
-        postorder(root, ans);
-        return ans;
-    }
-
-private:
-    void postorder(TreeNode* node, vector<int>& ans) {
-        if (!node) {
-            return; 
+    TreeNode* invertTree(TreeNode* root) {
+        if (!root) {
+            return nullptr;
         }
 
-        postorder(node->left, ans);
-        postorder(node->right, ans);
-        ans.push_back(node->val);
+        swap(root->left, root->right);
+        invertTree(root->left);
+        invertTree(root->right);
 
-        return;
+        return root;
     }
 };
