@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Post-order traversal
-
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 
@@ -17,14 +15,22 @@ struct TreeNode {
 
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
-        if (!root) {
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans = 0;
+        postorder(root, ans);
+        return ans;
+    }
+
+private:
+    int postorder(TreeNode* node, int& ans) {
+        if (!node) {
             return 0;
         }
 
-        int l = maxDepth(root->left);
-        int h = maxDepth(root->right);
+        int l = postorder(node->left, ans);
+        int r = postorder(node->right, ans);
+        ans = max(ans, l + r);
 
-        return max(l, h) + 1;
+        return max(l, r) + 1;
     }
 };
