@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Post-Order Traversal
+// Algorithm: Pre-Order Traversal
 
-// Time Complexity: O(min(m, n))
-// Space Complexity: O(min(m, n))
+// Time Complexity: O(m * n) -> m = number of nodes in root, n = number of nodes in subRoot
+// Space Complexity: O(m)
 
 struct TreeNode {
     int val;
@@ -17,6 +17,22 @@ struct TreeNode {
 
 class Solution {
 public:
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if (!root) {
+            return false;
+        }
+
+        if (isSameTree(root, subRoot)) {
+            return true;
+        }
+        
+        bool l = isSubtree(root->left, subRoot);
+        bool r = isSubtree(root->right, subRoot);
+
+        return l or r;
+    }
+
+private:
     bool isSameTree(TreeNode* p, TreeNode* q) {
         if (!p and !q) {
             return true; 
