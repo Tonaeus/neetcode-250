@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Post-order traversal
+// Algorithm: Post-Order Traversal
 
 // Time Complexity: O(n)
 // Space Complexity: O(n)
