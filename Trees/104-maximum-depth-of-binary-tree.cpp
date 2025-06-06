@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Pre-order traversal
+// Algorithm: Post-order traversal
 
 // Time Complexity: O(n)
 // Space Complexity: O(n)
@@ -17,15 +17,14 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode* invertTree(TreeNode* root) {
+    int maxDepth(TreeNode* root) {
         if (!root) {
-            return nullptr;
+            return 0;
         }
 
-        swap(root->left, root->right);
-        invertTree(root->left);
-        invertTree(root->right);
+        int lh = maxDepth(root->left);
+        int rh = maxDepth(root->right);
 
-        return root;
+        return max(lh, rh) + 1;
     }
 };
