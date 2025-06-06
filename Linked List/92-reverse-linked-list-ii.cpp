@@ -22,12 +22,12 @@ public:
             bl = bl->next; 
         }
 
-        ListNode* r = bl->next;
+        ListNode* l = bl->next;
         ListNode* curr = nullptr;
 
         for (int i = 0; i < right - left; i++) {
-            curr = r->next;
-            r->next = curr->next;
+            curr = l->next;
+            l->next = curr->next;
             curr->next = bl->next;
             bl->next = curr;
         }
