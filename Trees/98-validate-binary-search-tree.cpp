@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: 
-// Space Complexity: 
+// Data Structure: Binary Search Tree
+
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 
 struct TreeNode {
     int val;
@@ -16,11 +18,22 @@ struct TreeNode {
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-
+        return postorder(root, LLONG_MIN, LLONG_MAX);
     }
 
-private:
-    pair<int, int> postorder(TreeNode* node) {
+private: 
+    bool postorder(TreeNode* node, long long minVal, long long maxVal) {
+        if (!node) {
+            return true;
+        }
 
+        if (!(minVal < node->val and node->val < maxVal)) {
+            return false;
+        }
+
+        bool l = postorder(node->left, minVal, node->val);
+        bool r = postorder(node->right, node->val, maxVal);
+        
+        return l and r;
     }
 };
