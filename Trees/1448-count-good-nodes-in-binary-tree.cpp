@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Algorithm: Pre-Order Traversal 
+
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 
