@@ -17,21 +17,26 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode* removeLeafNodes(TreeNode* root, int target, TreeNode* parent = nullptr) {
-        if (!root) {
+    TreeNode* removeLeafNodes(TreeNode* root, int target) {
+        return postorder(root, nullptr, target);
+    }
+
+private:
+    TreeNode* postorder(TreeNode* node, TreeNode* parent, int target) {
+        if (!node) {
             return nullptr;
         }
 
-        root->left = removeLeafNodes(root->left, target);
-        root->right = removeLeafNodes(root->right, target);
+        node->left = postorder(node->left, node, target);
+        node->right = postorder(node->right, node, target);
 
-        if (!root->left and !root->right and root->val == target) {
+        if (!node->left and !node->right and node->val == target) {
             if (parent) {
-                delete root;
+                delete node;
             }
             return nullptr;
         }
 
-        return root;
+        return node;
     }
 };
