@@ -4,7 +4,7 @@ using namespace std;
 // Technique: Bitmasking
 
 // Time Complexity: O(2^n * n)
-// Space Complexity: O(2^n)
+// Space Complexity: O(2^n * n)
 
 class Solution {
 public:
