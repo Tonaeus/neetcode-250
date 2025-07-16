@@ -1,53 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Technique: Bitmask Dynamic Programming
+// Technique: Pruning
 
-// Time Complexity: O(2^n * n)
-// Space Complexity: O(2^n)
+// Time Complexity: O(2^n * k)
+// Space Complexity: O(max(n, k))
 
 class Solution {
 public:
     bool makesquare(vector<int>& matchsticks) {
+        int k = 4;
+
         int perimeter = accumulate(matchsticks.begin(), matchsticks.end(), 0);
-        int length = perimeter / 4;
-        
+        int length = perimeter / k;
         if (length * 4 != perimeter) {
             return false;
         }
 
-        if (*max_element(matchsticks.begin(), matchsticks.end()) > length) {
+        sort(matchsticks.rbegin(), matchsticks.rend());
+        if (matchsticks.front() > length) {
             return false;
         }
 
-        int n = matchsticks.size();
-        
-        vector<int> dp(1 << n, -1);
-
-        return dfs(matchsticks, 4, 0, length, (1 << n) - 1, dp);
+        vector<int> sides(k);
+        return dfs(matchsticks, 0, k, length, sides);
     }
 
 private: 
-    bool dfs(vector<int>& matchsticks, int k, int sum, int target, int mask, vector<int>& dp) {
-        if (k == 1) {
+    bool dfs(vector<int>& matchsticks, int i, int k, int length, vector<int>& sides) {
+        if (i == matchsticks.size()) {
             return true;
         }
- 
-        if (dp[mask] != -1) {
-            return dp[mask];
-        }
 
-        if (sum == target) {
-            return dfs(matchsticks, k - 1, 0, target, mask, dp);
-        }
-
-        bool res = false;
-        for (int i = 0; i < matchsticks.size(); i++) {
-            if (mask & (1 << i) and sum + matchsticks[i] <= target) {
-                res |= dfs(matchsticks, k, sum + matchsticks[i], target, mask ^ (1 << i), dp);
+        for (int j = 0; j < k; j++) {
+            if (sides[j] + matchsticks[i] > length) {
+                continue;
             }
+
+            sides[j] += matchsticks[i];
+            if (dfs(matchsticks, i + 1, k, length, sides)) {
+                return true;
+            }
+            sides[j] -= matchsticks[i];
+
+             if (sides[j] == 0) {
+                break;
+             }
         }
 
-        return dp[mask] = res;
+        return false;
     }
 };
