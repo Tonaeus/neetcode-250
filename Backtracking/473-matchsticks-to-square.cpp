@@ -43,9 +43,9 @@ private:
             }
             sides[j] -= matchsticks[i];
 
-             if (sides[j] == 0) {
+            if (sides[j] == 0) {
                 break;
-             }
+            }
         }
 
         return false;
