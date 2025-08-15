@@ -14,7 +14,7 @@ public:
 
         int l = 0;
         for (int r = 0; r < nums.size(); r++) {
-            if (!dmq.empty() && dmq.front() < l) {
+            if (!dmq.empty() and dmq.front() < l) {
                 dmq.pop_front();
             }
             

@@ -37,7 +37,7 @@ public:
 
 private: 
     ListNode* getKGroupEnd(ListNode* head, int k) {
-        while (head && k > 0) {
+        while (head and k > 0) {
             head = head->next;
             k--;
         }

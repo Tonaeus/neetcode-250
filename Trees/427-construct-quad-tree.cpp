@@ -61,12 +61,12 @@ private:
         Node* bottomLeft = dfs(grid, r + half, c, half);
         Node* bottomRight = dfs(grid, r + half, c + half, half); 
 
-        if (topLeft->isLeaf &&
-            topRight->isLeaf &&
-            bottomLeft->isLeaf &&
-            bottomRight->isLeaf &&
-            topLeft->val == topRight->val && 
-            topLeft->val == bottomLeft->val &&
+        if (topLeft->isLeaf and
+            topRight->isLeaf and
+            bottomLeft->isLeaf and
+            bottomRight->isLeaf and
+            topLeft->val == topRight->val and
+            topLeft->val == bottomLeft->val and
             bottomLeft->val == bottomRight->val
         ) {
             return new Node(grid[r][c], true); 
