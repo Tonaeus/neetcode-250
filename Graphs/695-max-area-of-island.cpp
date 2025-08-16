@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Flood Fill
+// Algorithm: Flood Fill (Depth-First Search)
 
 // Time Complexity: O(r * c)
 // Space Complexity: O(r * c)
