@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Technique: Dynamic Programming + Bitmasking + Pruning
+// Techniques: Dynamic Programming + Bitmasking + Pruning
 
 // Time Complexity: O(2^n * n)
 // Space Complexity: O(2^n)
