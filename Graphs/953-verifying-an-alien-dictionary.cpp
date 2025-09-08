@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Data Structure: Map
+// Data Structure: Rank Map
 
 // Time Complexity: O(n * k), n = number of words, k = average word length
 // Space Complexity: O(1)

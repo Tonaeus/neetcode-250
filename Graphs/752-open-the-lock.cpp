@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Breadth-First Search
+// Algorithm: Shortest Unweighted Path (Breadth-First Search)
 
 // Time Complexity: O(m + d^n)
 // Space Complexity: O(d^n)

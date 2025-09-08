@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Algorithm: Depth-First Search
+// Algorithm: Graph Traversal (Depth-First Search)
 
 // Time Complexity: O(v + e)
 // Space Complexity: O(v)
