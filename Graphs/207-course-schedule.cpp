@@ -9,9 +9,9 @@ using namespace std;
 class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<unordered_set<int>> g(numCourses);
+        vector<vector<int>> g(numCourses);
         for (const auto& p : prerequisites) {
-            g[p[0]].insert(p[1]);
+            g[p[0]].push_back(p[1]);
         }
 
         vector<bool> visited(numCourses);
@@ -25,7 +25,7 @@ public:
     }
 
 private:
-    bool dfs(vector<unordered_set<int>>& g, vector<bool>& visited, int v) {
+    bool dfs(vector<vector<int>>& g, vector<bool>& visited, int v) {
         if (g[v].empty()) {
             return true;
         }
@@ -35,7 +35,7 @@ private:
         }
 
         visited[v] = true;
-        for (const int nbr : g[v]) {
+        for (int nbr : g[v]) {
             if (!dfs(g, visited, nbr)) {
                 return false;
             }
