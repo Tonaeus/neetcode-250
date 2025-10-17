@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Data Structure: Disjoint Set
+
 // Time Complexity: O(v + e)
 // Space Complexity: O(v)
 
 class DisjointSet {
 public:
-    DisjointSet(int n) : parent(n), rank(n) {
+    DisjointSet(int n) : parent(n), rank(n, 1) {
         iota(parent.begin(), parent.end(), 0);
     }
 
@@ -27,13 +29,11 @@ public:
 
         if (rank[up] > rank[vp]) {
             parent[vp] = up;
-        } 
-        else if (rank[up] < rank[vp]) {
-            parent[up] = vp;
+            rank[up] += rank[vp];
         } 
         else {
-            parent[vp] = up;
-            rank[up]++;
+            parent[up] = vp;
+            rank[vp] += rank[up];
         }
 
         return true;
