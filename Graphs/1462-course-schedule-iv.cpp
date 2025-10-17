@@ -4,7 +4,7 @@ using namespace std;
 // Algorithm: Topological Sort (Kahn)
 
 // Time Complexity: O(v * (v + e) + q)
-// Space Complexity: 
+// Space Complexity: O(v^2 + e + q)
 
 class Solution {
 public:
