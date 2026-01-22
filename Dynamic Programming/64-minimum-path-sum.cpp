@@ -16,7 +16,7 @@ public:
 
 private:
     int dfs(vector<vector<int>>& grid, int rows, int cols, int i, int j, vector<vector<int>>& dp) {
-        if (i == rows -1 and j == cols - 1) {
+        if (i == rows - 1 and j == cols - 1) {
             return grid[i][j];
         }
 
