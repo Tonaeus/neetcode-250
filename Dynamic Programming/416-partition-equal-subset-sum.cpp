@@ -22,22 +22,22 @@ public:
     }
 
 private:
-    bool dfs(vector<int>& nums, int j, int target, vector<vector<int>>& dp) {
-        if (j < 0) {
+    bool dfs(vector<int>& nums, int i, int target, vector<vector<int>>& dp) {
+        if (i < 0) {
             return target == 0;
         }
 
-        if (dp[j][target] != -1) {
-            return dp[j][target];
+        if (dp[i][target] != -1) {
+            return dp[i][target];
         }
 
         bool include = false;
-        if (target - nums[j] >= 0) {
-            include = dfs(nums, j - 1, target - nums[j], dp);
+        if (target - nums[i] >= 0) {
+            include = dfs(nums, i - 1, target - nums[i], dp);
         }
 
-        bool exclude = dfs(nums, j - 1, target, dp);
+        bool exclude = dfs(nums, i - 1, target, dp);
 
-        return dp[j][target] = include or exclude;
+        return dp[i][target] = include or exclude;
     }
 };
