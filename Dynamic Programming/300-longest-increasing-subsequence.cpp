@@ -19,19 +19,19 @@ public:
     }
 
 private: 
-    int dfs(vector<int>& nums, int j, vector<int>& dp) {
-        if (dp[j] != -1) {
-            return dp[j];
+    int dfs(vector<int>& nums, int i, vector<int>& dp) {
+        if (dp[i] != -1) {
+            return dp[i];
         }
 
-        dp[j] = 1;
+        dp[i] = 1;
 
-        for (int i = 0; i < j; i++) {
-            if (nums[i] < nums[j]) {
-                dp[j] = max(dp[j], 1 + dfs(nums, i, dp));
+        for (int j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i] = max(dp[i], 1 + dfs(nums, j, dp));
             }
         }
 
-        return dp[j];
+        return dp[i];
     }
 };
