@@ -47,6 +47,7 @@ public:
 private:
     void bfs(vector<vector<int>>& heights, int r, int c, vector<vector<bool>>& ocean, queue<pair<int, int>>& q) {
         static const int directions[4][2] = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+        
         while (!q.empty()) {
             auto [i, j] = q.front();
             q.pop();
@@ -60,6 +61,7 @@ private:
                 }
             }
         }
+        
         return;
     }
 };
