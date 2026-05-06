@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n * s) -> n = size of nums, s = total sum of nums
+// Time Complexity: O(n * s) where n = size of nums, s = total sum of nums
 // Space Complexity: O(n * s)
 
 class Solution {

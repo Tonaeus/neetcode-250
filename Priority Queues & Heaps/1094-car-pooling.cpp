@@ -3,7 +3,7 @@ using namespace std;
 
 // Algorithm: Sweep Line
 
-// Time Complexity: O(n + d) -> n = size of trips, d = difference between the rightmost location and leftmost location
+// Time Complexity: O(n + d) where n = size of trips, d = difference between the rightmost location and leftmost location
 // Space Complexity: O(d)
 
 class Solution {

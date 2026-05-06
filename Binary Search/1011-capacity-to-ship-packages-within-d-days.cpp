@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n·log(s - m)) -> n = size of weights, m = max element of weights, s = total sum of weights
+// Time Complexity: O(n·log(s - m)) where n = size of weights, m = max element of weights, s = total sum of weights
 // Space Complexity: O(1)
 
 class Solution {

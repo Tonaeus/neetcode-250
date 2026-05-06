@@ -3,7 +3,7 @@ using namespace std;
 
 // Data Structure: Disjoint Set
 
-// Time Complexity: O(a * e * log(e)) -> a = number of accounts, e = number of emails
+// Time Complexity: O(a * e * log(e)) where a = number of accounts, e = number of emails
 // Space Complexity: O(a + e)
 
 class DisjointSet {

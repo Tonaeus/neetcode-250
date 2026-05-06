@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n * 4^n) -> n = number of cells
+// Time Complexity: O(n * 4^n) where n = number of cells
 // Space Complexity: O(n)
 
 class Solution {

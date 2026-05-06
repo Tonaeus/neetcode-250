@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(m * n * l) -> m = length of s, n = size of wordDict, l = average word length
+// Time Complexity: O(m * n * l) where m = length of s, n = size of wordDict, l = average word length
 // Space Complexity: O(m)
 
 class Solution {

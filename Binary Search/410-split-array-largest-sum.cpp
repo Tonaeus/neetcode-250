@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n·log(s)) -> n = size of nums, s = total sum of nums
+// Time Complexity: O(n·log(s)) where n = size of nums, s = total sum of nums
 // Space Complexity: O(1)
 
 class Solution {

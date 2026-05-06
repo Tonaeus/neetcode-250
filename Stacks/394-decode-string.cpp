@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n + N) -> n = length of input string, N = length of output string
+// Time Complexity: O(n + N) where n = length of input string, N = length of output string
 // Space Complexity: O(n + N)
 
 class Solution {

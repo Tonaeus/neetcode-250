@@ -3,7 +3,7 @@ using namespace std;
 
 // Algorithm: Pre-Order Traversal
 
-// Time Complexity: O(m * n) -> m = number of nodes in root, n = number of nodes in subRoot
+// Time Complexity: O(m * n) where m = number of nodes in root, n = number of nodes in subRoot
 // Space Complexity: O(m)
 
 struct TreeNode {

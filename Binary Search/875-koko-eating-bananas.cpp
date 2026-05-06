@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time Complexity: O(n·log(m)) -> n = size of piles, m = max element of piles
+// Time Complexity: O(n·log(m)) where n = size of piles, m = max element of piles
 // Space Complexity: O(1)
 
 class Solution {
