@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Concept: Game Theory
+// Algorithm: Minimax
 
 // Time Complexity: O(n)
 // Space Complexity: O(n)
@@ -10,42 +10,38 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
-        vector<vector<int>> dp(n, vector<int>(2, INT_MIN)); 
-        int res = minimax(stoneValue, n, 0, 0, dp);
-
-        if (res > 0) {
-            return "Alice";
-        }
-        if (res < 0) {
-            return "Bob";
-        }
-        return "Tie";
+        vector<vector<int>> dp(2, vector<int>(n, INT_MIN)); 
+        int score = minimax(stoneValue, n, 0, 0, dp);
+        return score > 0 ? "Alice" : score < 0 ? "Bob" : "Tie"; 
     }
 
 private:
-    int minimax(vector<int>& stoneValue, int n, int i, int p, vector<vector<int>>& dp) {
+    int minimax(vector<int>& stoneValue, int n, int player, int i, vector<vector<int>>& dp) {
         if (i == n) {
             return 0;
         }
 
-        if (dp[i][p] != INT_MIN) {
-            return dp[i][p];
+        if (dp[player][i] != INT_MIN) {
+            return dp[player][i];;
         }
 
-        dp[i][p] = p == 0 ? INT_MIN : INT_MAX;
+        int score = player == 0 ? INT_MIN : INT_MAX;
 
-        int score = 0;
-        for (int j = i; j < min(n, i + 3); j++) {
-            if (p == 0) {
-                score += stoneValue[j];
-                dp[i][p] = max(dp[i][p], score + minimax(stoneValue, n, j + 1, !p, dp));
-            }   
-            else {
-                score -= stoneValue[j];
-                dp[i][p] = min(dp[i][p], score + minimax(stoneValue, n, j + 1, !p, dp));
+        if (player == 0) {
+            int sum = 0;
+            for (int j = i; j < min(i + 3, n); j++) {
+                sum += stoneValue[j];
+                score = max(score, sum + minimax(stoneValue, n, 1, j + 1, dp));
+            }
+        }
+        else {
+            int sum = 0;
+            for (int j = i; j < min(i + 3, n); j++) {
+                sum -= stoneValue[j];
+                score = min(score, sum + minimax(stoneValue, n, 0, j + 1, dp));
             }
         }
 
-        return dp[i][p]; 
+        return dp[player][i] = score; 
     }
 };
